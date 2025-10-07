@@ -132,17 +132,11 @@ export default {
 				},
 			'skill-charge': {
 				'0%': { width: '0%' },
-				'17%': { width: 'var(--skill-level)' },
-				'25%': { width: 'var(--skill-level)' },
-				'33%': { width: '0%' },
-				'100%': { width: '0%' }
+				'100%': { width: 'var(--skill-level)' }
 			},
 			'pulse-end': {
 				'0%': { left: '0%', opacity: '0' },
-				'17%': { left: 'var(--skill-level)', opacity: '1' },
-				'25%': { left: 'var(--skill-level)', opacity: '1' },
-				'33%': { left: '0%', opacity: '0' },
-				'100%': { left: '0%', opacity: '0' }
+				'100%': { left: 'var(--skill-level)', opacity: '1' }
 			},
 				'fade-in': {
 					'0%': { opacity: '0', transform: 'translateY(20px)' },
@@ -161,8 +155,8 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'charge-sweep': 'charge-sweep 2s ease-in-out',
 				'charge-sweep-infinite': 'charge-sweep-infinite 2.5s ease-in-out infinite',
-			'skill-charge': 'skill-charge 6s ease-in-out infinite',
-			'pulse-end': 'pulse-end 6s ease-in-out infinite',
+			'skill-charge': 'skill-charge 3s ease-out forwards',
+			'pulse-end': 'pulse-end 3s ease-out forwards',
 				'fade-in': 'fade-in 0.8s ease-out forwards'
 			},
 			backgroundImage: {
