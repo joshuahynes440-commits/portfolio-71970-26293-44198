@@ -231,6 +231,9 @@ const CyberPortfolio = () => {
             <button onClick={() => scrollToSection('certifications')} className="text-muted-foreground hover:text-primary transition-colors font-cyber">
               Certificates
             </button>
+            <a href="/cv" className="text-muted-foreground hover:text-primary transition-colors font-cyber">
+              CV
+            </a>
             <button onClick={() => scrollToSection('contact')} className="text-muted-foreground hover:text-primary transition-colors font-cyber">
               Contact
             </button>
@@ -286,6 +289,15 @@ const CyberPortfolio = () => {
                 >
                   <FileText className="w-4 h-4 mr-2" />
                   Certificates
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <a 
+                    href="/cv"
+                    className="font-cyber hover:bg-primary/20 hover:text-primary cursor-pointer flex items-center"
+                  >
+                    <User className="w-4 h-4 mr-2" />
+                    CV / Résumé
+                  </a>
                 </DropdownMenuItem>
                 <DropdownMenuItem 
                   onClick={() => scrollToSection('contact')}

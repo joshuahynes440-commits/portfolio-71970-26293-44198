@@ -9,6 +9,7 @@ import HoneypotProject from "./pages/HoneypotProject";
 import WebPenTestProject from "./pages/WebPenTestProject";
 import VulnAssessmentProject from "./pages/VulnAssessmentProject";
 import IncidentResponseProject from "./pages/IncidentResponseProject";
+import CVPage from "./pages/CVPage";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route path="/cv" element={<CVPage />} />
           <Route path="/honeypot" element={<HoneypotProject />} />
           <Route path="/web-pentest" element={<WebPenTestProject />} />
           <Route path="/vuln-assessment" element={<VulnAssessmentProject />} />
