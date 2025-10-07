@@ -132,10 +132,12 @@ export default {
 				},
 			'skill-charge': {
 				'0%': { width: '0%' },
+				'62.5%': { width: 'var(--skill-level)' },
 				'100%': { width: 'var(--skill-level)' }
 			},
 			'pulse-end': {
 				'0%': { left: '0%', opacity: '0' },
+				'62.5%': { left: 'var(--skill-level)', opacity: '1' },
 				'100%': { left: 'var(--skill-level)', opacity: '1' }
 			},
 				'fade-in': {
@@ -155,8 +157,8 @@ export default {
 				'float': 'float 3s ease-in-out infinite',
 				'charge-sweep': 'charge-sweep 2s ease-in-out',
 				'charge-sweep-infinite': 'charge-sweep-infinite 2.5s ease-in-out infinite',
-			'skill-charge': 'skill-charge 3s ease-out forwards',
-			'pulse-end': 'pulse-end 3s ease-out forwards',
+			'skill-charge': 'skill-charge 8s ease-out infinite',
+			'pulse-end': 'pulse-end 8s ease-out infinite',
 				'fade-in': 'fade-in 0.8s ease-out forwards'
 			},
 			backgroundImage: {
