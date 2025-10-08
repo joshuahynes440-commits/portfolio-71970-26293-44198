@@ -22,7 +22,8 @@ import {
   FileText,
   ChevronRight,
   ChevronDown,
-  X
+  X,
+  ArrowLeft
 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -242,10 +243,21 @@ const CVPage = () => {
       {/* Header Navigation */}
       <nav className="no-print fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-md border-b border-primary/30">
         <div className="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-          <a href="/" className="flex items-center gap-3">
-            <img src={mantisLogo} alt="Mantis Logo" className="w-10 h-10 animate-cyber-pulse" />
-            <span className="text-xl font-cyber font-bold text-primary">MANTIS</span>
-          </a>
+          <div className="flex items-center gap-4">
+            <Button
+              onClick={() => window.location.href = '/'}
+              variant="outline"
+              size="sm"
+              className="border-primary/30 hover:bg-primary/20"
+            >
+              <ArrowLeft className="w-4 h-4 mr-2" />
+              Back to Main Site
+            </Button>
+            <a href="/" className="flex items-center gap-3">
+              <img src={mantisLogo} alt="Mantis Logo" className="w-10 h-10 animate-cyber-pulse" />
+              <span className="text-xl font-cyber font-bold text-primary">MANTIS</span>
+            </a>
+          </div>
           
           <div className="flex items-center gap-3">
             <Button 
