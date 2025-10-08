@@ -5,7 +5,6 @@ import {
   Download,
   Mail,
   MapPin,
-  Phone,
   Linkedin,
   ExternalLink,
   Printer,
@@ -303,23 +302,12 @@ const CVPage = () => {
                     alt="Joshua Hynes" 
                     className="w-full h-full rounded-full object-cover border-4 border-primary/50 shadow-glow-green"
                   />
-                  <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground px-3 py-1 rounded-full text-xs font-bold">
-                    Available
-                  </div>
                 </div>
                 
                 <div className="space-y-2 text-sm">
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <MapPin className="w-4 h-4 text-primary" />
                     <span>Nairobi, Kenya</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Phone className="w-4 h-4 text-primary" />
-                    <a href="tel:+254793022449" className="hover:text-primary">+254 793 022 449</a>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground">
-                    <Mail className="w-4 h-4 text-primary" />
-                    <button onClick={handleContact} className="hover:text-primary">Email Me</button>
                   </div>
                   <div className="flex items-center gap-2 text-muted-foreground">
                     <Linkedin className="w-4 h-4 text-primary" />
@@ -329,7 +317,7 @@ const CVPage = () => {
                       rel="noopener noreferrer"
                       className="hover:text-primary"
                     >
-                      LinkedIn
+                      LinkedIn Profile
                     </a>
                   </div>
                 </div>
@@ -341,19 +329,11 @@ const CVPage = () => {
                   Joshua Hynes
                 </h1>
                 <p className="text-xl md:text-2xl font-semibold text-secondary">
-                  Aspiring Information Security Analyst
+                  Information Security Analyst
                 </p>
                 <p className="text-lg text-muted-foreground italic">
-                  From Circuits to Cyber — Ethical Research Only
+                  From Circuits to Cyber
                 </p>
-                <div className="flex flex-wrap gap-2 pt-2">
-                  <Badge className="bg-primary/20 text-primary border-primary/50">
-                    Available for Entry-Level Roles
-                  </Badge>
-                  <Badge variant="outline" className="border-secondary/50 text-secondary">
-                    Ethical Research Only
-                  </Badge>
-                </div>
               </div>
 
               {/* Right: Quick Actions */}
@@ -389,11 +369,7 @@ const CVPage = () => {
             </CardHeader>
             <CardContent>
               <p className="text-muted-foreground leading-relaxed">
-                Electrical & Electronic Engineer turned information security analyst with a robust foundation in critical systems 
-                and a recent, intensive specialization in cybersecurity. Passionate about applying a methodical, analytical, and 
-                security-first mindset, honed in high-stakes engineering environments, to protect digital assets and ensure compliance. 
-                Eager to contribute to securing financial systems and customer data through hands-on experience in vulnerability management, 
-                incident response, and defensive security operations.
+                Electrical & Electronic Engineer turned Information Security Analyst with a strong foundation in critical systems and a recent, intensive specialization in cybersecurity. Passionate about applying a methodical, analytical, and security-first mindset—developed through engineering precision—to safeguard digital infrastructures. Skilled in vulnerability management, incident response, and defensive security operations, with a focus on protecting systems, data, and users across diverse environments. Eager to contribute to strengthening organizational security posture and ensuring compliance with industry best practices.
               </p>
             </CardContent>
           </Card>
@@ -593,43 +569,95 @@ const CVPage = () => {
           </Card>
         </section>
 
-        {/* Contact CTA */}
-        <section className="px-6 py-12 max-w-4xl mx-auto">
-          <Card className="bg-gradient-cyber border-primary/50 shadow-glow-intense">
-            <CardContent className="py-8 text-center space-y-4">
-              <h2 className="text-3xl font-cyber font-bold text-primary-foreground">
-                Ready to Secure Your Systems?
-              </h2>
-              <p className="text-lg text-primary-foreground/90">
-                Let's discuss how I can contribute to your security team
+        {/* Contact Form */}
+        <section className="no-print px-6 py-12 max-w-4xl mx-auto">
+          <div className="space-y-6">
+            <div className="text-center space-y-2">
+              <h2 className="text-3xl font-cyber font-bold text-primary">Get in Touch</h2>
+              <p className="text-lg text-muted-foreground">
+                Have a message for me? Use the form below — I'll receive it directly via email.
               </p>
-              <div className="flex flex-wrap gap-4 justify-center pt-4">
-                <Button 
-                  onClick={handleContact}
-                  size="lg"
-                  className="bg-background text-primary hover:bg-background/90 font-bold"
+            </div>
+            
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/30">
+              <CardContent className="pt-6">
+                <form 
+                  action="https://formspree.io/f/xwpkddjy" 
+                  method="POST"
+                  className="space-y-4"
                 >
-                  <Mail className="w-5 h-5 mr-2" />
-                  Contact Me
-                </Button>
-                <Button 
-                  onClick={handleDownloadPDF}
-                  size="lg"
-                  variant="outline"
-                  className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/20"
-                >
-                  <Download className="w-5 h-5 mr-2" />
-                  Download CV
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
+                  <div className="space-y-2">
+                    <label htmlFor="name" className="text-sm font-medium text-foreground">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      className="w-full px-4 py-2 bg-background border border-primary/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
+                      placeholder="Your name"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="email" className="text-sm font-medium text-foreground">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      className="w-full px-4 py-2 bg-background border border-primary/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+                  
+                  <div className="space-y-2">
+                    <label htmlFor="message" className="text-sm font-medium text-foreground">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      name="message"
+                      required
+                      rows={5}
+                      className="w-full px-4 py-2 bg-background border border-primary/30 rounded-md focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground resize-none"
+                      placeholder="Your message..."
+                    />
+                  </div>
+                  
+                  <Button 
+                    type="submit"
+                    size="lg"
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                  >
+                    <Mail className="w-5 h-5 mr-2" />
+                    Send Message
+                  </Button>
+                </form>
+              </CardContent>
+            </Card>
+            
+            <div className="text-center">
+              <Button 
+                onClick={handleDownloadPDF}
+                size="lg"
+                variant="outline"
+                className="border-primary/30 hover:bg-primary/20"
+              >
+                <Download className="w-5 h-5 mr-2" />
+                Download CV (PDF)
+              </Button>
+            </div>
+          </div>
         </section>
 
         {/* Footer */}
         <footer className="px-6 py-8 border-t border-primary/20 text-center text-xs text-muted-foreground">
           <p className="mb-2">All experience & projects listed are completed in controlled, ethical environments unless otherwise stated.</p>
-          <p>© 2025 Joshua Hynes. Available for Entry-Level Information Security Roles.</p>
+          <p>© 2025 Joshua Hynes. Information Security Analyst.</p>
         </footer>
       </div>
 
@@ -639,9 +667,7 @@ const CVPage = () => {
           "@context": "https://schema.org",
           "@type": "Person",
           "name": "Joshua Hynes",
-          "jobTitle": "Aspiring Information Security Analyst",
-          "email": "hynesjoshua3@gmail.com",
-          "telephone": "+254793022449",
+          "jobTitle": "Information Security Analyst",
           "address": {
             "@type": "PostalAddress",
             "addressLocality": "Nairobi",
@@ -650,7 +676,7 @@ const CVPage = () => {
           "sameAs": [
             "https://www.linkedin.com/in/joshua-hynes-8b7833314"
           ],
-          "description": "Electrical & Electronic Engineer turned information security analyst with hands-on cybersecurity experience",
+          "description": "Electrical & Electronic Engineer turned Information Security Analyst with a strong foundation in critical systems and intensive cybersecurity specialization",
           "alumniOf": [
             {
               "@type": "EducationalOrganization",
