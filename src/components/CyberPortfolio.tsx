@@ -834,68 +834,66 @@ const CyberPortfolio = () => {
           <Card className="bg-card/50 backdrop-blur-sm border-primary/30 shadow-glow-green">
             <CardContent className="p-8">
               <p className="text-lg text-muted-foreground mb-8">
-                Ready to secure your organization? Let's connect and discuss how I can help strengthen your cybersecurity posture.
+                Have a message for me? Use the form below — I'll receive it directly via email.
               </p>
               
-              <div className="flex flex-wrap justify-center gap-4">
-                <DropdownMenu>
-                  <DropdownMenuTrigger asChild>
-                    <Button variant="default" size="lg" className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense">
-                      <Mail className="w-5 h-5 mr-2" />
-                      Contact Options
-                      <ChevronDown className="w-4 h-4 ml-2" />
-                    </Button>
-                  </DropdownMenuTrigger>
-                  <DropdownMenuContent 
-                    align="center" 
-                    className="w-56 bg-card/95 backdrop-blur-md border-primary/30 shadow-glow-green z-50"
-                  >
-                    <DropdownMenuLabel className="font-cyber text-primary">Get In Touch</DropdownMenuLabel>
-                    <DropdownMenuSeparator className="bg-primary/30" />
-                    <DropdownMenuItem 
-                      onClick={() => window.location.href = 'mailto:hynesjoshua3@gmail.com'}
-                      className="font-cyber hover:bg-primary/20 hover:text-primary cursor-pointer"
-                    >
-                      <Mail className="w-4 h-4 mr-2" />
-                      Send Email
-                    </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      onClick={() => window.location.href = 'tel:0795302249'}
-                      className="font-cyber hover:bg-primary/20 hover:text-primary cursor-pointer"
-                    >
-                      <Phone className="w-4 h-4 mr-2" />
-                      Call Phone
-                    </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      onClick={() => window.open('https://linkedin.com/in/joshua-hynes', '_blank')}
-                      className="font-cyber hover:bg-primary/20 hover:text-primary cursor-pointer"
-                    >
-                      <Linkedin className="w-4 h-4 mr-2" />
-                      LinkedIn
-                    </DropdownMenuItem>
-                    <DropdownMenuItem 
-                      onClick={() => window.open('#', '_blank')}
-                      className="font-cyber hover:bg-primary/20 hover:text-primary cursor-pointer"
-                    >
-                      <Github className="w-4 h-4 mr-2" />
-                      GitHub
-                    </DropdownMenuItem>
-                    <DropdownMenuSeparator className="bg-primary/30" />
-                    <DropdownMenuItem 
-                      onClick={() => window.open('#', '_blank')}
-                      className="font-cyber hover:bg-secondary/20 hover:text-secondary cursor-pointer"
-                    >
-                      <Download className="w-4 h-4 mr-2" />
-                      Download CV
-                    </DropdownMenuItem>
-                  </DropdownMenuContent>
-                </DropdownMenu>
-                
-                <Button variant="outline" size="lg" className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground">
-                  <ExternalLink className="w-5 h-5 mr-2" />
-                  View Certifications
+              <div className="mb-6 flex justify-center">
+                <Button 
+                  onClick={() => window.open('https://www.linkedin.com/in/joshua-hynes-8b7833314', '_blank')}
+                  variant="default" 
+                  size="lg" 
+                  className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense"
+                >
+                  <Linkedin className="w-5 h-5 mr-2" />
+                  Connect on LinkedIn
                 </Button>
               </div>
+
+              <form 
+                action="https://formspree.io/f/xwpkddjy" 
+                method="POST"
+                className="max-w-xl mx-auto space-y-4"
+              >
+                <div>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Your Name"
+                    required
+                    className="w-full px-4 py-3 bg-background/50 border border-primary/30 rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                </div>
+                
+                <div>
+                  <input
+                    type="email"
+                    name="email"
+                    placeholder="Your Email"
+                    required
+                    className="w-full px-4 py-3 bg-background/50 border border-primary/30 rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
+                  />
+                </div>
+                
+                <div>
+                  <textarea
+                    name="message"
+                    placeholder="Your Message"
+                    required
+                    rows={5}
+                    className="w-full px-4 py-3 bg-background/50 border border-primary/30 rounded-md text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
+                  />
+                </div>
+                
+                <Button 
+                  type="submit"
+                  variant="default" 
+                  size="lg" 
+                  className="w-full bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense"
+                >
+                  <Mail className="w-5 h-5 mr-2" />
+                  Send Message
+                </Button>
+              </form>
             </CardContent>
           </Card>
         </div>
