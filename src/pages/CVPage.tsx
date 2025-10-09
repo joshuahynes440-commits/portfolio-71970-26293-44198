@@ -35,6 +35,7 @@ const CVPage = () => {
   const [showPDFViewer, setShowPDFViewer] = useState(false);
   const [expandedTimeline, setExpandedTimeline] = useState<string[]>(['education']);
   const [isPrintMode, setIsPrintMode] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const toggleTimeline = (id: string) => {
@@ -68,6 +69,49 @@ const CVPage = () => {
 
   const handleContact = () => {
     window.location.href = 'mailto:hynesjoshua3@gmail.com?subject=Inquiry from CV Page';
+  };
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      message: formData.get('message') as string,
+    };
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+
+      // Reset form
+      e.currentTarget.reset();
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const skills = {
@@ -582,8 +626,7 @@ const CVPage = () => {
             <Card className="bg-card/50 backdrop-blur-sm border-primary/30">
               <CardContent className="pt-6">
                 <form 
-                  action="https://formspree.io/f/xwpkddjy" 
-                  method="POST"
+                  onSubmit={handleContactSubmit}
                   className="space-y-4"
                 >
                   <div className="space-y-2">
@@ -631,10 +674,11 @@ const CVPage = () => {
                   <Button 
                     type="submit"
                     size="lg"
-                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground"
+                    disabled={isSubmitting}
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground disabled:opacity-50"
                   >
                     <Mail className="w-5 h-5 mr-2" />
-                    Send Message
+                    {isSubmitting ? 'Sending...' : 'Send Message'}
                   </Button>
                 </form>
               </CardContent>

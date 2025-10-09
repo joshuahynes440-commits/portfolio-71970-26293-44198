@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useToast } from '@/hooks/use-toast';
 import { 
   Shield, 
   Terminal, 
@@ -54,12 +55,14 @@ import hpLogo from '@/assets/logos/hp-logo.png';
 import tryhackmeLogo from '@/assets/logos/tryhackme-logo.png';
 
 const CyberPortfolio = () => {
+  const { toast } = useToast();
   const [isVisible, setIsVisible] = useState(false);
   const [typedText, setTypedText] = useState('');
   const [selectedProjectFilter, setSelectedProjectFilter] = useState('All');
   const [skillsInView, setSkillsInView] = useState(false);
   const [isMantisModalOpen, setIsMantisModalOpen] = useState(false);
   const [nameTypedText, setNameTypedText] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const fullText = 'Joshua Hynes';
   const nameFullText = "I'M JOSHUA HYNES";
 
@@ -126,6 +129,49 @@ const CyberPortfolio = () => {
       clearInterval(repeatInterval);
     };
   }, []);
+
+  const handleContactSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    const formData = new FormData(e.currentTarget);
+    const data = {
+      name: formData.get('name') as string,
+      email: formData.get('email') as string,
+      message: formData.get('message') as string,
+    };
+
+    try {
+      const response = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-contact-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to send message');
+      }
+
+      toast({
+        title: "Message Sent!",
+        description: "Thank you for reaching out. I'll get back to you soon!",
+      });
+
+      // Reset form
+      e.currentTarget.reset();
+    } catch (error) {
+      console.error('Error sending message:', error);
+      toast({
+        title: "Error",
+        description: "Failed to send message. Please try again later.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
 
   const skills = [
     { name: 'Network Security', level: 90, icon: Shield },
@@ -850,8 +896,7 @@ const CyberPortfolio = () => {
               </div>
 
               <form 
-                action="https://formspree.io/f/xwpkddjy" 
-                method="POST"
+                onSubmit={handleContactSubmit}
                 className="max-w-xl mx-auto space-y-4"
               >
                 <div>
@@ -888,10 +933,11 @@ const CyberPortfolio = () => {
                   type="submit"
                   variant="default" 
                   size="lg" 
-                  className="w-full bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense"
+                  disabled={isSubmitting}
+                  className="w-full bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense disabled:opacity-50"
                 >
                   <Mail className="w-5 h-5 mr-2" />
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                 </Button>
               </form>
             </CardContent>
