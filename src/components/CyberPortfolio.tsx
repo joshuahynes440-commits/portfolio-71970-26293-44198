@@ -426,25 +426,95 @@ const CyberPortfolio = () => {
                 <Lock className="w-full h-full text-secondary/20 animate-spin" style={{ animationDuration: '10s' }} />
               </div>
               
-              {/* Main mantis image */}
+              {/* Animated Tech/Hacker Element */}
               <div className="relative w-[400px] h-[400px] mx-auto">
-                <div className="relative rounded-full overflow-hidden w-full h-full border-4 border-primary/30 shadow-glow-intense animate-float">
-                  <img 
-                    src={mantisHero} 
-                    alt="Mantis - Symbol of Stealth and Focus" 
-                    className="w-full h-full object-cover opacity-80"
-                  />
+                {/* Outer rotating ring */}
+                <div className="absolute inset-0 border-2 border-primary/30 rounded-full animate-spin" style={{ animationDuration: '20s' }}>
+                  <div className="absolute top-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-primary rounded-full shadow-glow-green"></div>
+                  <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-3 h-3 bg-secondary rounded-full shadow-glow-green"></div>
                 </div>
                 
-                {/* Unmask the Mantis Button */}
-                <Button
-                  onClick={() => setIsMantisModalOpen(true)}
-                  className="absolute bottom-8 left-1/2 -translate-x-1/2 bg-primary hover:bg-primary/90 text-primary-foreground font-cyber shadow-glow-green border-2 border-primary/50 transition-all duration-500 hover:scale-110 hover:shadow-glow-intense hover:border-secondary animate-pulse hover:animate-none group"
-                  style={{ animationDelay: '0.6s', animationDuration: '2s' }}
-                >
-                  <span className="relative z-10 group-hover:animate-pulse">Unmask the Mantis</span>
-                  <span className="absolute inset-0 bg-secondary/20 rounded-md blur-xl group-hover:bg-secondary/40 transition-all duration-500"></span>
-                </Button>
+                {/* Inner container with terminal animation */}
+                <div className="relative w-full h-full flex items-center justify-center">
+                  {/* Circuit board background */}
+                  <div className="absolute inset-8 opacity-20">
+                    <svg className="w-full h-full" viewBox="0 0 200 200">
+                      <path d="M20,20 L180,20 L180,180 L20,180 Z" fill="none" stroke="currentColor" strokeWidth="1" className="text-primary animate-pulse" />
+                      <circle cx="50" cy="50" r="5" fill="currentColor" className="text-primary animate-cyber-pulse" />
+                      <circle cx="150" cy="50" r="5" fill="currentColor" className="text-secondary animate-cyber-pulse" style={{ animationDelay: '0.3s' }} />
+                      <circle cx="50" cy="150" r="5" fill="currentColor" className="text-secondary animate-cyber-pulse" style={{ animationDelay: '0.6s' }} />
+                      <circle cx="150" cy="150" r="5" fill="currentColor" className="text-primary animate-cyber-pulse" style={{ animationDelay: '0.9s' }} />
+                      <line x1="50" y1="50" x2="150" y2="50" stroke="currentColor" strokeWidth="1" className="text-primary/50" />
+                      <line x1="50" y1="150" x2="150" y2="150" stroke="currentColor" strokeWidth="1" className="text-primary/50" />
+                      <line x1="50" y1="50" x2="50" y2="150" stroke="currentColor" strokeWidth="1" className="text-primary/50" />
+                      <line x1="150" y1="50" x2="150" y2="150" stroke="currentColor" strokeWidth="1" className="text-primary/50" />
+                    </svg>
+                  </div>
+                  
+                  {/* Terminal window */}
+                  <div className="relative z-10 w-[300px] h-[300px] bg-background/90 backdrop-blur-sm border-2 border-primary/50 rounded-lg shadow-glow-intense overflow-hidden">
+                    {/* Terminal header */}
+                    <div className="h-8 bg-primary/20 border-b border-primary/30 flex items-center px-3 gap-2">
+                      <div className="w-3 h-3 rounded-full bg-destructive"></div>
+                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div className="w-3 h-3 rounded-full bg-primary"></div>
+                      <span className="font-cyber text-xs text-primary ml-2">root@security:~$</span>
+                    </div>
+                    
+                    {/* Terminal content with typing animation */}
+                    <div className="p-4 font-mono text-xs text-primary/80 space-y-1">
+                      <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
+                        <span className="text-primary">$</span> whoami
+                      </div>
+                      <div className="animate-fade-in text-secondary" style={{ animationDelay: '0.5s' }}>
+                        joshua_hynes
+                      </div>
+                      <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
+                        <span className="text-primary">$</span> cat skills.txt
+                      </div>
+                      <div className="animate-fade-in text-muted-foreground space-y-0.5" style={{ animationDelay: '1.1s' }}>
+                        <div>[✓] Penetration Testing</div>
+                        <div>[✓] Vulnerability Assessment</div>
+                        <div>[✓] Malware Analysis</div>
+                        <div>[✓] Network Security</div>
+                      </div>
+                      <div className="animate-fade-in" style={{ animationDelay: '1.5s' }}>
+                        <span className="text-primary">$</span> ./exploit.sh
+                      </div>
+                      <div className="animate-fade-in text-primary" style={{ animationDelay: '1.8s' }}>
+                        [*] Scanning for vulnerabilities...
+                      </div>
+                      <div className="animate-fade-in text-secondary" style={{ animationDelay: '2.1s' }}>
+                        [+] System compromised successfully
+                      </div>
+                      <div className="flex items-center gap-1 animate-fade-in" style={{ animationDelay: '2.4s' }}>
+                        <span className="text-primary">$</span>
+                        <span className="inline-block w-2 h-4 bg-primary animate-blink"></span>
+                      </div>
+                    </div>
+                    
+                    {/* Scanning line effect */}
+                    <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-scan-line opacity-50"></div>
+                  </div>
+                  
+                  {/* Floating data particles */}
+                  <div className="absolute inset-0 pointer-events-none">
+                    {[...Array(8)].map((_, i) => (
+                      <div
+                        key={i}
+                        className="absolute text-primary/30 text-xs font-mono animate-float"
+                        style={{
+                          top: `${Math.random() * 100}%`,
+                          left: `${Math.random() * 100}%`,
+                          animationDelay: `${Math.random() * 2}s`,
+                          animationDuration: `${3 + Math.random() * 2}s`,
+                        }}
+                      >
+                        {['0x', '0xFF', '0x1A', '0xDEAD', '0xBEEF'][Math.floor(Math.random() * 5)]}
+                      </div>
+                    ))}
+                  </div>
+                </div>
               </div>
               
               {/* Animated dots */}
