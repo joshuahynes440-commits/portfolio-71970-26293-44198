@@ -159,8 +159,11 @@ const CyberPortfolio = () => {
         description: "Thank you for reaching out. I'll get back to you soon!",
       });
 
-      // Reset form
-      e.currentTarget.reset();
+      // Reset form safely
+      const form = e.target as HTMLFormElement;
+      if (form) {
+        form.reset();
+      }
     } catch (error) {
       console.error('Error sending message:', error);
       toast({
