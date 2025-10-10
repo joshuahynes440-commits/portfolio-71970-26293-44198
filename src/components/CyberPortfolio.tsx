@@ -54,6 +54,96 @@ import mastercardLogo from '@/assets/logos/mastercard-logo.png';
 import hpLogo from '@/assets/logos/hp-logo.png';
 import tryhackmeLogo from '@/assets/logos/tryhackme-logo.png';
 
+// Terminal Animation Component with continuous typing effect
+const TerminalAnimation = () => {
+  const [lines, setLines] = useState<Array<{ text: string; type: 'command' | 'output' | 'cursor' }>>([]);
+  const [currentLineIndex, setCurrentLineIndex] = useState(0);
+  const [currentCharIndex, setCurrentCharIndex] = useState(0);
+
+  const terminalCommands = [
+    { text: '$ whoami', type: 'command' as const },
+    { text: 'joshua_hynes', type: 'output' as const },
+    { text: '$ cat skills.txt', type: 'command' as const },
+    { text: '[✓] Penetration Testing', type: 'output' as const },
+    { text: '[✓] Vulnerability Assessment', type: 'output' as const },
+    { text: '[✓] Malware Analysis', type: 'output' as const },
+    { text: '[✓] Network Security', type: 'output' as const },
+    { text: '$ nmap -sV -sC joshuahynes.ie', type: 'command' as const },
+    { text: 'Starting Nmap 7.94 ( https://nmap.org )', type: 'output' as const },
+    { text: 'Nmap scan report for joshuahynes.ie', type: 'output' as const },
+    { text: 'Host is up (0.023s latency)', type: 'output' as const },
+    { text: 'PORT    STATE SERVICE  VERSION', type: 'output' as const },
+    { text: '80/tcp  open  http     nginx', type: 'output' as const },
+    { text: '443/tcp open  ssl/http nginx', type: 'output' as const },
+    { text: '[+] SSL/TLS: Certificate valid', type: 'output' as const },
+    { text: '[+] Security headers detected', type: 'output' as const },
+    { text: 'Nmap done: 1 IP address scanned', type: 'output' as const },
+  ];
+
+  useEffect(() => {
+    const typingSpeed = 50; // milliseconds per character
+    const commandDelay = 300; // delay before typing next line
+
+    if (currentLineIndex >= terminalCommands.length) {
+      // Reset animation after a pause
+      const resetTimer = setTimeout(() => {
+        setLines([]);
+        setCurrentLineIndex(0);
+        setCurrentCharIndex(0);
+      }, 2000);
+      return () => clearTimeout(resetTimer);
+    }
+
+    const currentCommand = terminalCommands[currentLineIndex];
+    
+    if (currentCharIndex < currentCommand.text.length) {
+      // Typing characters
+      const typingTimer = setTimeout(() => {
+        setCurrentCharIndex(currentCharIndex + 1);
+      }, typingSpeed);
+      return () => clearTimeout(typingTimer);
+    } else {
+      // Finished typing current line, move to next
+      const nextLineTimer = setTimeout(() => {
+        setLines([...lines, currentCommand]);
+        setCurrentLineIndex(currentLineIndex + 1);
+        setCurrentCharIndex(0);
+      }, commandDelay);
+      return () => clearTimeout(nextLineTimer);
+    }
+  }, [currentLineIndex, currentCharIndex, lines]);
+
+  const currentCommand = terminalCommands[currentLineIndex];
+  const displayText = currentCommand ? currentCommand.text.slice(0, currentCharIndex) : '';
+
+  return (
+    <div className="p-4 font-mono text-xs text-primary/80 space-y-1 h-[268px] overflow-hidden">
+      {lines.map((line, index) => (
+        <div
+          key={index}
+          className={
+            line.type === 'command' 
+              ? 'text-primary' 
+              : line.type === 'output' && line.text.includes('[+]')
+              ? 'text-secondary'
+              : line.type === 'output' && line.text.includes('[✓]')
+              ? 'text-muted-foreground'
+              : 'text-primary/70'
+          }
+        >
+          {line.text}
+        </div>
+      ))}
+      {currentCommand && (
+        <div className={currentCommand.type === 'command' ? 'text-primary' : 'text-primary/70'}>
+          {displayText}
+          <span className="inline-block w-2 h-3 bg-primary animate-blink ml-0.5"></span>
+        </div>
+      )}
+    </div>
+  );
+};
+
 const CyberPortfolio = () => {
   const { toast } = useToast();
   const [isVisible, setIsVisible] = useState(false);
@@ -462,36 +552,7 @@ const CyberPortfolio = () => {
                     </div>
                     
                     {/* Terminal content with typing animation */}
-                    <div className="p-4 font-mono text-xs text-primary/80 space-y-1">
-                      <div className="animate-fade-in" style={{ animationDelay: '0.2s' }}>
-                        <span className="text-primary">$</span> whoami
-                      </div>
-                      <div className="animate-fade-in text-secondary" style={{ animationDelay: '0.5s' }}>
-                        joshua_hynes
-                      </div>
-                      <div className="animate-fade-in" style={{ animationDelay: '0.8s' }}>
-                        <span className="text-primary">$</span> cat skills.txt
-                      </div>
-                      <div className="animate-fade-in text-muted-foreground space-y-0.5" style={{ animationDelay: '1.1s' }}>
-                        <div>[✓] Penetration Testing</div>
-                        <div>[✓] Vulnerability Assessment</div>
-                        <div>[✓] Malware Analysis</div>
-                        <div>[✓] Network Security</div>
-                      </div>
-                      <div className="animate-fade-in" style={{ animationDelay: '1.5s' }}>
-                        <span className="text-primary">$</span> ./exploit.sh
-                      </div>
-                      <div className="animate-fade-in text-primary" style={{ animationDelay: '1.8s' }}>
-                        [*] Scanning for vulnerabilities...
-                      </div>
-                      <div className="animate-fade-in text-secondary" style={{ animationDelay: '2.1s' }}>
-                        [+] System compromised successfully
-                      </div>
-                      <div className="flex items-center gap-1 animate-fade-in" style={{ animationDelay: '2.4s' }}>
-                        <span className="text-primary">$</span>
-                        <span className="inline-block w-2 h-4 bg-primary animate-blink"></span>
-                      </div>
-                    </div>
+                    <TerminalAnimation />
                     
                     {/* Scanning line effect */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-primary to-transparent animate-scan-line opacity-50"></div>
