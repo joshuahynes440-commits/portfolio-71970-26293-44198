@@ -998,6 +998,194 @@ const CyberPortfolio = () => {
                 </Button>
               </CardContent>
             </Card>
+
+            {/* Certificate 6: EC-Council Dark Web */}
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <CardContent className="p-6 relative z-10">
+                <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  Introduction to Dark Web, Anonymity, and Cryptocurrency
+                </h4>
+                <p className="text-sm text-muted-foreground mb-2 italic">Issuer: EC-Council</p>
+                <p className="text-muted-foreground mb-4">
+                  Completed a course introducing the structure and operations of the Dark Web, covering topics such as anonymity networks, 
+                  cryptocurrencies, and darknet markets. Learned techniques used to maintain privacy online, detect dark web activities, 
+                  and investigate cybercrime footprints.
+                </p>
+                <div className="mb-4">
+                  <h5 className="font-semibold text-sm text-primary mb-2">Skills Gained:</h5>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Dark Web Investigation</li>
+                    <li>• Anonymity and Privacy Tools (Tor, VPNs)</li>
+                    <li>• Cryptocurrency Fundamentals and Blockchain</li>
+                    <li>• OSINT Techniques</li>
+                    <li>• Cyber Threat Intelligence</li>
+                    <li>• Cybercrime Investigation Basics</li>
+                  </ul>
+                </div>
+                <Button 
+                  onClick={() => window.open('/lovable-uploads/ec-council-cert.png', '_blank')}
+                  variant="default"
+                  size="sm"
+                  className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View Certificate
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Certificate 7: AWS Cloud Audit */}
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <CardContent className="p-6 relative z-10">
+                <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  Cloud Audit Academy – Cloud Agnostic
+                </h4>
+                <p className="text-sm text-muted-foreground mb-2 italic">Issuer: Amazon Web Services (AWS)</p>
+                <p className="text-muted-foreground mb-4">
+                  Completed the AWS Cloud Audit Academy – Cloud Agnostic program, gaining knowledge in auditing cloud environments, 
+                  governance, compliance, and risk management. Developed skills to evaluate security controls across multi-cloud 
+                  platforms using industry best practices.
+                </p>
+                <div className="mb-4">
+                  <h5 className="font-semibold text-sm text-primary mb-2">Skills Gained:</h5>
+                  <div className="grid md:grid-cols-2 gap-2">
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Cloud Computing Fundamentals</li>
+                      <li>• AWS Security</li>
+                      <li>• Cloud Security</li>
+                      <li>• IT Audit</li>
+                      <li>• Risk Management</li>
+                      <li>• Cloud Auditing</li>
+                      <li>• Shared Responsibility Model</li>
+                      <li>• Governance, Risk Management, and Compliance (GRC)</li>
+                    </ul>
+                    <ul className="text-sm text-muted-foreground space-y-1">
+                      <li>• Identity and Access Management (IAM)</li>
+                      <li>• Data Security and Privacy</li>
+                      <li>• Logging and Monitoring</li>
+                      <li>• Business Continuity and Contingency Planning</li>
+                      <li>• Incident Response</li>
+                      <li>• Vulnerability Management</li>
+                      <li>• Cloud Access Security Broker (CASB)</li>
+                    </ul>
+                  </div>
+                </div>
+                <Button 
+                  variant="default"
+                  size="sm"
+                  className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View Certificate
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Certificate 8: arcX Threat Intelligence */}
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <CardContent className="p-6 relative z-10">
+                <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  Foundation Level Threat Intelligence Analyst
+                </h4>
+                <p className="text-sm text-muted-foreground mb-2 italic">Issuer: arcX</p>
+                <p className="text-muted-foreground mb-4">
+                  Completed the Foundation Level Threat Intelligence Analyst course by arcX, focusing on the fundamentals of cyber 
+                  threat intelligence (CTI). Gained the ability to collect, analyze, and disseminate actionable intelligence to 
+                  strengthen organizational security posture and improve incident response.
+                </p>
+                <div className="mb-4">
+                  <h5 className="font-semibold text-sm text-primary mb-2">Skills Gained:</h5>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Threat Intelligence Fundamentals</li>
+                    <li>• Cyber Threat Analysis</li>
+                    <li>• Intelligence Lifecycle Management</li>
+                    <li>• Open-Source Intelligence (OSINT)</li>
+                    <li>• Indicators of Compromise (IoC) Analysis</li>
+                    <li>• Threat Actor Profiling</li>
+                    <li>• Incident Response Support</li>
+                    <li>• Reporting and Dissemination Techniques</li>
+                  </ul>
+                </div>
+                <Button 
+                  variant="default"
+                  size="sm"
+                  className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View Certificate
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Certificate 9: AWS WAF */}
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <CardContent className="p-6 relative z-10">
+                <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  Introduction to AWS WAF
+                </h4>
+                <p className="text-sm text-muted-foreground mb-2 italic">Issuer: Amazon Web Services (AWS)</p>
+                <p className="text-muted-foreground mb-4">
+                  Completed the Introduction to AWS WAF course, building foundational knowledge of AWS Web Application Firewall. 
+                  Gained skills in protecting applications from common web exploits, managing access control, and improving 
+                  application security posture in the cloud.
+                </p>
+                <div className="mb-4">
+                  <h5 className="font-semibold text-sm text-primary mb-2">Skills Gained:</h5>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• AWS Security</li>
+                    <li>• Web Application Security</li>
+                    <li>• Cloud Security</li>
+                    <li>• Application Security</li>
+                    <li>• WAF (Web Application Firewall) Configuration</li>
+                    <li>• AWS WAF</li>
+                    <li>• AWS Cloud</li>
+                  </ul>
+                </div>
+                <Button 
+                  variant="default"
+                  size="sm"
+                  className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View Certificate
+                </Button>
+              </CardContent>
+            </Card>
+
+            {/* Certificate 10: CSA TAISE - Full width */}
+            <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green md:col-span-2 relative overflow-hidden">
+              <CardContent className="p-6 relative z-10">
+                <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
+                  Trusted AI Safety Expert (TAISE)
+                </h4>
+                <p className="text-sm text-muted-foreground mb-2 italic">Issuer: Cloud Security Alliance (CSA)</p>
+                <p className="text-muted-foreground mb-4">
+                  Certified in AI Safety with a focus on the practical and ethical implementation of Generative AI. Skilled in identifying 
+                  and mitigating AI bias across the machine learning life cycle and applying Responsible AI principles. Experienced in 
+                  analyzing use cases for Generative and Multimodal AI in cybersecurity, healthcare, and public sector services, with a 
+                  strong understanding of AI risk management and governance frameworks.
+                </p>
+                <div className="mb-4">
+                  <h5 className="font-semibold text-sm text-primary mb-2">Skills Gained:</h5>
+                  <ul className="text-sm text-muted-foreground space-y-1">
+                    <li>• Generative AI</li>
+                    <li>• AI Ethics</li>
+                    <li>• Multimodal AI</li>
+                    <li>• AI Agents</li>
+                    <li>• Cybersecurity AI</li>
+                    <li>• Bias Mitigation</li>
+                  </ul>
+                </div>
+                <Button 
+                  variant="default"
+                  size="sm"
+                  className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
+                >
+                  <ExternalLink className="w-4 h-4 mr-2" />
+                  View Certificate
+                </Button>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </section>
