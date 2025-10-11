@@ -53,6 +53,10 @@ import deloitteLogo from '@/assets/logos/deloitte-logo.png';
 import mastercardLogo from '@/assets/logos/mastercard-logo.png';
 import hpLogo from '@/assets/logos/hp-logo.png';
 import tryhackmeLogo from '@/assets/logos/tryhackme-logo.png';
+import ecCouncilLogo from '@/assets/logos/ec-council-logo.png';
+import awsLogo from '@/assets/logos/aws-logo.png';
+import arcxLogo from '@/assets/logos/arcx-logo.png';
+import csaLogo from '@/assets/logos/csa-logo.png';
 
 // Terminal Animation Component with continuous typing effect
 const TerminalAnimation = () => {
@@ -1001,6 +1005,10 @@ const CyberPortfolio = () => {
 
             {/* Certificate 6: EC-Council Dark Web */}
             <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${ecCouncilLogo})` }}
+              />
               <CardContent className="p-6 relative z-10">
                 <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   Introduction to Dark Web, Anonymity, and Cryptocurrency
@@ -1036,6 +1044,10 @@ const CyberPortfolio = () => {
 
             {/* Certificate 7: AWS Cloud Audit */}
             <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${awsLogo})` }}
+              />
               <CardContent className="p-6 relative z-10">
                 <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   Cloud Audit Academy – Cloud Agnostic
@@ -1071,6 +1083,7 @@ const CyberPortfolio = () => {
                   </div>
                 </div>
                 <Button 
+                  onClick={() => window.open('/lovable-uploads/aws-cloud-audit-cert.png', '_blank')}
                   variant="default"
                   size="sm"
                   className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
@@ -1083,6 +1096,10 @@ const CyberPortfolio = () => {
 
             {/* Certificate 8: arcX Threat Intelligence */}
             <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${arcxLogo})` }}
+              />
               <CardContent className="p-6 relative z-10">
                 <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   Foundation Level Threat Intelligence Analyst
@@ -1107,6 +1124,7 @@ const CyberPortfolio = () => {
                   </ul>
                 </div>
                 <Button 
+                  onClick={() => window.open('https://arcx.io/verify-certificate?id=8810aac0043b8eca50dcde6ac7e4177efe27291a&k=2064806872b3411b8c5558bd2cc7735c', '_blank')}
                   variant="default"
                   size="sm"
                   className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
@@ -1119,6 +1137,10 @@ const CyberPortfolio = () => {
 
             {/* Certificate 9: AWS WAF */}
             <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green relative overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${awsLogo})` }}
+              />
               <CardContent className="p-6 relative z-10">
                 <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   Introduction to AWS WAF
@@ -1142,6 +1164,7 @@ const CyberPortfolio = () => {
                   </ul>
                 </div>
                 <Button 
+                  onClick={() => window.open('/lovable-uploads/aws-waf-cert.png', '_blank')}
                   variant="default"
                   size="sm"
                   className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
@@ -1154,6 +1177,10 @@ const CyberPortfolio = () => {
 
             {/* Certificate 10: CSA TAISE - Full width */}
             <Card className="bg-card/50 backdrop-blur-sm border-primary/30 hover:border-primary/60 transition-all duration-300 group hover:shadow-glow-green md:col-span-2 relative overflow-hidden">
+              <div 
+                className="absolute inset-0 bg-cover bg-center opacity-5 group-hover:opacity-10 transition-opacity duration-300"
+                style={{ backgroundImage: `url(${csaLogo})` }}
+              />
               <CardContent className="p-6 relative z-10">
                 <h4 className="text-xl font-cyber font-semibold mb-3 text-foreground group-hover:text-primary transition-colors">
                   Trusted AI Safety Expert (TAISE)
@@ -1177,6 +1204,7 @@ const CyberPortfolio = () => {
                   </ul>
                 </div>
                 <Button 
+                  onClick={() => window.open('/lovable-uploads/csa-taise-cert.png', '_blank')}
                   variant="default"
                   size="sm"
                   className="bg-gradient-cyber text-primary-foreground hover:shadow-glow-intense transition-all duration-300"
